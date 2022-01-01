@@ -85,7 +85,7 @@ Resources:
          aws s3 cp s3://udacity2345/index.html /var/www/html
         #  echo "Udacity Demo Web Server Up and Running!" > index.html       
       ImageId: ami-0e472ba40eb589f49
-      KeyName: Ansible-Ec2
+      # KeyName: Ansible-Ec2
       IamInstanceProfile: !Ref ServerInstanceProfile
       SecurityGroups:
       - Ref: WebServerSecGroup

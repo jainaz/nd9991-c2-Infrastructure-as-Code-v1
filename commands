@@ -1,0 +1,32 @@
+aws s3 ls
+aws iam list-users
+
+aws cloudformation create-stack  --stack-name myFirstTest --region us-east-1 --template-body file://vpc.yaml
+
+aws cloudformation update-stack  --stack-name myFirstTest --region us-east-1 --template-body file://testcfn.yml
+
+aws cloudformation describe-stacks --stack-name myFirstTest
+
+aws cloudformation delete-stack --stack-name myFirstTest
+
+aws cloudformation create-stack  --stack-name challenge1 --region us-east-1 --template-body file://challenge1.yml --parameters file://challenge1-parameters.json
+aws cloudformation update-stack  --stack-name challenge1 --region us-east-1 --template-body file://challenge1.yml --parameters file://challenge1-parameters.json
+
+aws cloudformation delete-stack  --stack-name challenge11
+
+
+aws cloudformation create-stack  --stack-name myStack --region us-east-1 --template-body file://network.yml --parameters file://network-parameters.json
+
+aws cloudformation create-stack  --stack-name myStack2 --region us-east-1 --template-body file://servers.yml --parameters file://server-parameters.json --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
+
+
+
+Overrides:
+      - InstanceRequirements:
+          VCpuCount:
+            Min: 2
+            Max: 2
+          MemoryMiB:
+            Min: 4096
+
+IAM role for s3            
